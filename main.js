@@ -75,6 +75,5 @@ async function search () {
 selectInput.addEventListener('keyup', debounce(search, 1000));
 
 resultList.addEventListener('click', ev => {
-    console.log(ev.target.tagName);
     if (ev.target.closest('button')) ev.target.closest('li').remove();
 })
