@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #C4C4C4;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.app {
+    display: flex;
+    padding-top: 62px;
+    padding-bottom: 72px;
+    justify-content: center;
+}
+
+.wrap {
+    width: 500px;
+}
+
+.select__input {
+    box-sizing: border-box;
+    padding-top: 5px;
+    padding-left: 13px;
+    width: 500px;
+    height: 61px;
+    font-size: 48px;
+    line-height: 56px;
+    background: #FFFFFF;
+}
+
+.select__list {
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+    line-height: 35px;
+    background: #E3E3E3;
+    list-style: none;
+}
+
+.select__item {
+    box-sizing: border-box;
+    padding-left: 13px;
+    padding-bottom: 9px;
+    border: 2px solid #000000;
+    cursor: pointer;
+}
+
+.select__item:hover,
+.select__item:focus {
+    background: #65CDF9;
+}
+
+.result {
+    margin-top: 45px;
+}
+
+.result__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.result__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 101px;
+    padding: 8px 34px 8px 16px;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    background: #E27BEB;
+    border: 1px solid #000000;
+}
+
+.result__delete {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+.result__delete:before,
+.result__delete:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 42px;
+    height: 4px;
+    background: #FF0000;
+}
+
+.result__delete:before {
+    transform: rotate(45deg);
+}
+
+.result__delete:after {
+    transform: rotate(-45deg);
+}
