@@ -51,6 +51,11 @@ function constructList (data, parent) {
     }
 }
 
+function resultListListenerHandler(ev) {
+    if (ev.target.closest('button')) ev.target.closest('li').remove();
+    if (!resultList.children.length) resultList.removeEventListener('click', resultListListenerHandler);
+}
+
 async function search () {
     if (selectInput.value) {
         try {
@@ -59,11 +64,12 @@ async function search () {
             clearList();
             constructList(result.items, selectList);
             selectList.addEventListener('click', ev => {
+                if (!resultList.children.length) resultList.addEventListener('click', resultListListenerHandler);
                 let target = result.items.filter(item => item.id === +ev.target.getAttribute('id'));
                 constructList(target, resultList);
                 selectInput.value = '';
                 clearList();
-            })
+            }, {once: true})
         } catch (error) {
             console.log(error);
         }
@@ -72,8 +78,4 @@ async function search () {
     }
 }
 
-selectInput.addEventListener('keyup', debounce(search, 1000));
-
-resultList.addEventListener('click', ev => {
-    if (ev.target.closest('button')) ev.target.closest('li').remove();
-})
+selectInput.addEventListener('input', debounce(search, 1000));
